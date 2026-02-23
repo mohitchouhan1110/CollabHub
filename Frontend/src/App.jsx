@@ -21,7 +21,7 @@ function App() {
     <>
     <Provider store={appStore}>
 
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename='/CollabHub'>
     <Routes>
       <Route path='/' element={<Body/>}>
       <Route path ="/" element={<Feed/>}/>
