@@ -21,7 +21,11 @@ const User = require("../models/user")
      if(!token){
         return res.status(401).send("Please Login!!")
      }
-      const decodedObj = await jwt.verify(token,"Dev@Tinder$790");
+      const secret = process.env.JWT_SECRET;
+     if (!secret) {
+        throw new Error("JWT_SECRET environment variable is not defined");
+     }
+     const decodedObj = await jwt.verify(token, secret);
 
       const {_id} = decodedObj;
 
